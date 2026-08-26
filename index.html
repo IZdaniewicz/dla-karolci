@@ -44,39 +44,18 @@
     </section>
 
     <section class="story hidden-section" id="story" aria-live="polite">
-      <div class="section-heading">
-        <span>01</span>
+      <div class="section-heading" style="grid-template-columns: 1fr;">
         <h2>Nie gniewaj się na mnie, proszę.</h2>
       </div>
 
       <div class="note-card main-note reveal-on-scroll">
         <span class="tape" aria-hidden="true"></span>
         <p>
-          Wiem, że nie potrafię Ci zawsze tego pokazać, ale bardzo, bardzo Cię kocham i nie chcę, abyś była na mnie zła.
-          Ja jestem tylko niedoskonałym szczurkiem, który czasem zachowa się tak, jak nie powinien, ale chcę, abyś wiedziała,
-          że jesteś jego słońcem i radością.
+          Przeprasza, że nie potrafię Ci zawsze tego pokazać ale wiedz że bardzo bardzo Cię kocham i nie chcę abyś była na mnie zła.
+          Ja jestem tylko pospolitym niedoskonałym szczurkiem który czasem zachowa się tak jak nie powinien bo ma gorszy humor albo jest niewyspany
+          ale chce abyś wiedziała że jesteś jego słońcem i radością i kocha Cię bardzo bardzo bardzo bardzo bardzo bardzo bardzo bardzo.
         </p>
-        <p class="handwritten">Bo kocham Cię. Bardzo. I zależy mi na Tobie bardziej, niż umiem czasem pokazać. ♡</p>
       </div>
-
-      <div class="tiny-cards" aria-label="Kilka ważnych rzeczy">
-        <article class="tiny-card reveal-on-scroll">
-          <span>🌼</span>
-          <h3>Przepraszam</h3>
-          <p>Za to, co Cię zabolało albo zirytowało. Chcę być dla Ciebie lepszy, nie tylko tak mówić.</p>
-        </article>
-        <article class="tiny-card reveal-on-scroll">
-          <span>🫶</span>
-          <h3>Jesteś ważna</h3>
-          <p>Nie „na chwilę”, nie „jak jest łatwo”. Po prostu jesteś bardzo ważną częścią mojego świata.</p>
-        </article>
-        <article class="tiny-card reveal-on-scroll">
-          <span>🌷</span>
-          <h3>I nadal wybieram Ciebie</h3>
-          <p>Nawet kiedy mamy gorszy moment. Zwłaszcza wtedy chcę pamiętać, że jesteśmy po tej samej stronie.</p>
-        </article>
-      </div>
-      <p class="swipe-hint">przesuń karteczki palcem →</p>
     </section>
 
     <section class="tap-love hidden-section" id="tapLove">
@@ -86,17 +65,15 @@
       </div>
 
       <div class="love-meter-card reveal-on-scroll">
-        <p class="activity-copy">Dotknij serduszka kilka razy. Ono podobno wie, dla kogo bije.</p>
-
         <button class="heart-tap" id="heartTap" type="button" aria-label="Napełnij serduszko miłością">
           <span class="heart-symbol" id="heartSymbol">♥</span>
           <span class="heart-tap-label" id="heartTapLabel">dotknij mnie</span>
         </button>
 
-        <div class="love-progress" aria-hidden="true">
+        <div class="love-progress" id="loveProgressTrack" role="progressbar" aria-label="Poziom miłości" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
           <span id="loveProgress"></span>
         </div>
-        <p class="tap-message" id="tapMessage">0% miłości… to zdecydowanie za mało.</p>
+        <p class="tap-message" id="tapMessage">0% - to zdecydowanie za mało.</p>
       </div>
     </section>
 
