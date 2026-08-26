@@ -8,6 +8,7 @@ const heartTap = document.querySelector('#heartTap');
 const heartSymbol = document.querySelector('#heartSymbol');
 const heartTapLabel = document.querySelector('#heartTapLabel');
 const loveProgress = document.querySelector('#loveProgress');
+const loveProgressTrack = document.querySelector('#loveProgressTrack');
 const tapMessage = document.querySelector('#tapMessage');
 
 const loveButton = document.querySelector('#loveButton');
@@ -20,12 +21,12 @@ let loveLevel = 0;
 let kissShown = false;
 
 const loveMessages = [
-  '0% miłości… to zdecydowanie za mało.',
-  '20% — o, już zaczyna bić szybciej 💗',
-  '40% — chyba myśli o Karolci…',
-  '60% — robi się naprawdę cieplutko 🥺',
-  '80% — jeszcze tylko odrobinkę!',
-  '100% — przepełnione miłością do Ciebie ♡'
+  '0% - to zdecydowanie za mało.',
+  '20% - o, już zaczyna bić szybciej 💗',
+  '40% - Ochh tak!!',
+  '60% - robi się naprawdę cieplutko 🥺',
+  '80% - jeszcze tylko odrobinkę!',
+  '100% - zapełnione miłością do Ciebie i od Ciebie ♡'
 ];
 
 function unlockStory() {
@@ -70,28 +71,40 @@ function floatHeartFrom(element, symbol = '♡') {
   setTimeout(() => floating.remove(), 1400);
 }
 
-function fillHeart() {
-  if (loveLevel < 5) {
-    loveLevel += 1;
-  }
-
+function updateHeartState() {
   const percentage = loveLevel * 20;
   const scale = 0.72 + loveLevel * 0.065;
 
   loveProgress.style.width = `${percentage}%`;
+  loveProgressTrack.setAttribute('aria-valuenow', String(percentage));
+  tapMessage.textContent = loveMessages[loveLevel];
+
   heartSymbol.style.setProperty('--heart-scale', scale.toFixed(2));
   heartSymbol.classList.remove('bump');
   void heartSymbol.offsetWidth;
   heartSymbol.classList.add('bump');
-  tapMessage.textContent = loveMessages[loveLevel];
 
+  if (loveLevel >= 5) {
+    heartTapLabel.textContent = 'pełne miłości ♡';
+  } else if (loveLevel > 0) {
+    heartTapLabel.textContent = 'jeszcze trochę';
+  } else {
+    heartTapLabel.textContent = 'dotknij mnie';
+  }
+}
+
+function fillHeart() {
+  if (loveLevel >= 5) {
+    floatHeartFrom(heartTap, '♡');
+    return;
+  }
+
+  loveLevel += 1;
+  updateHeartState();
   floatHeartFrom(heartTap, ['♡', '♥', '💗'][loveLevel % 3]);
 
   if (loveLevel === 5) {
-    heartTapLabel.textContent = 'pełne miłości ♡';
     petalShower(12);
-  } else {
-    heartTapLabel.textContent = 'jeszcze trochę';
   }
 }
 
@@ -128,6 +141,8 @@ const revealObserver = new IntersectionObserver((entries, observer) => {
 });
 
 revealElements.forEach(element => revealObserver.observe(element));
+
+updateHeartState();
 
 flowerButton.addEventListener('click', unlockStory);
 heartTap.addEventListener('click', fillHeart);
