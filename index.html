@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#fff8f7" />
   <title>Dla Karolci 🌷</title>
   <meta name="description" content="Mała, kwiatowa wiadomość pełna miłości." />
@@ -22,7 +22,7 @@
     <section class="hero" id="start">
       <p class="eyebrow">mała wiadomość tylko dla Ciebie</p>
       <h1>Karolciu, mam dla Ciebie <span>kwiatuszka</span> 🌷</h1>
-      <p class="hero-copy">Kliknij go. Obiecuję, że nie gryzie — co najwyżej trochę kocha.</p>
+      <p class="hero-copy">Kliknij go. Obiecuję, że nie gryzie.</p>
 
       <button class="flower-button" id="flowerButton" aria-label="Kliknij kwiat, aby rozpocząć">
         <span class="flower" aria-hidden="true">
@@ -46,22 +46,20 @@
     <section class="story hidden-section" id="story" aria-live="polite">
       <div class="section-heading">
         <span>01</span>
-        <div>
-          <p class="eyebrow">najpierw najważniejsze</p>
-          <h2>Nie gniewaj się na mnie, proszę.</h2>
-        </div>
+        <h2>Nie gniewaj się na mnie, proszę.</h2>
       </div>
 
       <div class="note-card main-note reveal-on-scroll">
         <span class="tape" aria-hidden="true"></span>
         <p>
-          Wiem, że czasem potrafię coś zepsuć, palnąć nie tak albo zachować się jak kompletny ziemniak.
-          Nie chcę jednak, żebyś choć przez chwilę pomyślała, że jesteś mi obojętna.
+          Wiem, że nie potrafię Ci zawsze tego pokazać, ale bardzo, bardzo Cię kocham i nie chcę, abyś była na mnie zła.
+          Ja jestem tylko niedoskonałym szczurkiem, który czasem zachowa się tak, jak nie powinien, ale chcę, abyś wiedziała,
+          że jesteś jego słońcem i radością.
         </p>
         <p class="handwritten">Bo kocham Cię. Bardzo. I zależy mi na Tobie bardziej, niż umiem czasem pokazać. ♡</p>
       </div>
 
-      <div class="tiny-cards">
+      <div class="tiny-cards" aria-label="Kilka ważnych rzeczy">
         <article class="tiny-card reveal-on-scroll">
           <span>🌼</span>
           <h3>Przepraszam</h3>
@@ -78,59 +76,27 @@
           <p>Nawet kiedy mamy gorszy moment. Zwłaszcza wtedy chcę pamiętać, że jesteśmy po tej samej stronie.</p>
         </article>
       </div>
+      <p class="swipe-hint">przesuń karteczki palcem →</p>
     </section>
 
-    <section class="reasons hidden-section" id="reasons">
+    <section class="tap-love hidden-section" id="tapLove">
       <div class="section-heading">
         <span>02</span>
-        <div>
-          <p class="eyebrow">mały generator prawdy</p>
-          <h2>Za co Cię kocham?</h2>
+        <h2>Napełnij serduszko miłością.</h2>
+      </div>
+
+      <div class="love-meter-card reveal-on-scroll">
+        <p class="activity-copy">Dotknij serduszka kilka razy. Ono podobno wie, dla kogo bije.</p>
+
+        <button class="heart-tap" id="heartTap" type="button" aria-label="Napełnij serduszko miłością">
+          <span class="heart-symbol" id="heartSymbol">♥</span>
+          <span class="heart-tap-label" id="heartTapLabel">dotknij mnie</span>
+        </button>
+
+        <div class="love-progress" aria-hidden="true">
+          <span id="loveProgress"></span>
         </div>
-      </div>
-
-      <div class="reason-machine reveal-on-scroll">
-        <div class="mini-bouquet" aria-hidden="true">🌷🌼🌸</div>
-        <p id="reasonText">Za Twój uśmiech, który potrafi mi naprawić dzień.</p>
-        <button class="soft-button" id="reasonButton">Losuj kolejny powód ✨</button>
-      </div>
-    </section>
-
-    <section class="heart-game hidden-section" id="heartGame">
-      <div class="section-heading">
-        <span>03</span>
-        <div>
-          <p class="eyebrow">zadanie specjalne</p>
-          <h2>Złap 7 serduszek</h2>
-        </div>
-      </div>
-
-      <div class="game-card reveal-on-scroll">
-        <p>Każde jest ode mnie. Trochę uciekają, bo najwyraźniej odziedziczyły po mnie chaos.</p>
-        <div class="game-toolbar">
-          <button class="soft-button" id="gameButton">Zaczynam 💗</button>
-          <span class="score">Złapane: <strong id="score">0</strong>/7</span>
-        </div>
-        <div class="game-area" id="gameArea" aria-label="Pole do łapania serduszek"></div>
-        <p class="game-message" id="gameMessage"></p>
-      </div>
-    </section>
-
-    <section class="promise hidden-section" id="promise">
-      <div class="section-heading">
-        <span>04</span>
-        <div>
-          <p class="eyebrow">bez wielkich słów</p>
-          <h2>Jedna mała obietnica.</h2>
-        </div>
-      </div>
-
-      <div class="promise-card reveal-on-scroll">
-        <p>Nie obiecuję, że nigdy się nie pomylę.</p>
-        <p>Obiecuję za to, że kiedy coś popsuję, będę próbował to naprawić.</p>
-        <p>Że będę Cię słuchał. Że nie chcę wygrać z Tobą — chcę być z Tobą.</p>
-        <span>i że zawsze mam dla Ciebie miejsce tu →</span>
-        <div class="big-heart" aria-label="w sercu">♥</div>
+        <p class="tap-message" id="tapMessage">0% miłości… to zdecydowanie za mało.</p>
       </div>
     </section>
 
@@ -139,8 +105,14 @@
       <p class="eyebrow">i jeszcze jedno…</p>
       <h2>Kocham Cię, Karolciu.</h2>
       <p class="final-copy">Nawet kiedy jestem głupi. Nawet kiedy się nie dogadamy od razu. Nawet kiedy trzeba coś naprawić.</p>
-      <button class="love-button" id="loveButton">Kliknij, jeśli mogę dostać buziaka 🥺</button>
-      <p class="love-answer" id="loveAnswer"></p>
+
+      <button class="love-button" id="loveButton">Kliknij aby dostać buziaka 💗</button>
+
+      <div class="kiss-photo-wrap" id="kissPhotoWrap" aria-live="polite">
+        <img class="kiss-photo" id="kissPhoto" src="buziak.jpg" alt="Buziak dla Karolci" />
+        <p class="kiss-caption">Ten jest tylko dla Ciebie 😘</p>
+      </div>
+
       <a class="restart-link" href="#start" id="restartLink">jeszcze raz od kwiatuszka ↑</a>
     </section>
   </main>
