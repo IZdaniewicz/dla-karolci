@@ -140,8 +140,8 @@ function spawnHeart() {
   gameArea.appendChild(heart);
 
   setTimeout(() => {
+    clearInterval(escapeTimer);
     if (heart.isConnected && !heart.classList.contains('caught')) {
-      clearInterval(escapeTimer);
       heart.remove();
     }
   }, 5200);
